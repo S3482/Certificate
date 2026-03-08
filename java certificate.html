@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- saved from url=(0096)https://generateinvoice.teachx.in/generatecertificate/certificate/codingseekho_db/34757/19418/74 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+    <meta name="viewport" content="width=215.9mm, height=279.4mm, initial-scale=1.0">
+    <title>Sunil Kumar</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family>Gentium+Book+Basic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+
+    <script src="./java certificate_files/jquery.min.js.download"></script>
+    <script type="text/javascript" src="./java certificate_files/jspdf.min.js.download"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./java certificate_files/css2" rel="stylesheet">
+    <link href="./java certificate_files/css2(1)" rel="stylesheet">
+    <script src="./java certificate_files/html2pdf.bundle.js.download"></script>
+    	<style>
+        body{
+            width: 212mm;
+            margin: 0;
+            padding: 0;
+        }
+		#certi-contents {
+            width: 1140px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2vw;
+            background-size: 100%;
+            font-weight: 100;
+            line-height: 0.5;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            /* font-size: 30px;
+            color: #000000; */
+        }
+
+        .dynamic-textbox {
+            position: absolute;
+            width: 200px;
+            height: 10px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-size: 16px;
+        }
+        .stuName{
+            padding:0;
+            margin:0;
+            min-width: 100% !important;
+            font-size: 40px;
+            color: #000000;
+            padding-left:15px;
+        }
+        .stuissueDate{
+            padding:0;
+            margin:0;
+            min-width: 100% !important;
+            font-size: 20px;
+            color: #000000;
+            padding-left:46px;
+        }
+        .inst-name{
+            float: left;
+        }
+        .inst-logo{
+            float:right;
+			max-width:90px;
+			max-height:90px;
+            margin-right: 2vw;
+        }
+        .certi-body{
+            max-width: 100rem;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            padding-right: 20%;
+        }
+        #loading{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+        }
+        #loader{
+            height: 50px;
+            width: 50px;
+        }
+        #loading p{
+            font-size: 20px;
+            margin-top: 0px !important;
+        }
+	</style>	
+</head>
+<body onload="checkIframeLoaded();">
+<input type="hidden" name="position_left" id="namepositionleft" value="325">
+    <input type="hidden" name="position_top" id="namepositiontop" value="309">
+    <input type="hidden" name="issue_date_position_left" id="issueDatepositionleft" value="612">
+    <input type="hidden" name="issue_date_position_top" id="issueDatepositiontop" value="27">
+    <input type="hidden" name="img_id" id="imgId" value="3">
+    <div id="certi-contents" style="position: relative;">
+        <img src="./java certificate_files/2025-11-22-0_18398853919952984.jpg" alt="" width="890px" height="700px">
+        <p class="stuName" style="position: absolute; line-height: 0; top: 309px; left: -120px;">Sunil Kumar</p>
+        <p class="stuissueDate" style="position: absolute; line-height: 0; top: 27px; left: 167px;">22/10/2025</p>
+    </div>
+    
+<script>
+    var ispreview = '';
+    function checkIframeLoaded(){
+        var nameeleWidth = 890; // width set to 890px default ;
+        var nameright = nameeleWidth/2;
+
+        var nameleftposition = $(document).find('#namepositionleft').val();
+        var namerslt = parseFloat(nameleftposition) - parseFloat(nameright);
+        
+
+        var issueDateeleWidth = 890// width set to 890px default ;
+        var issueDateright = issueDateeleWidth/2;
+
+        var issueDateleftposition = $(document).find('#issueDatepositionleft').val();
+
+        var issueDaterslt = parseFloat(issueDateleftposition) - parseFloat(issueDateright);
+
+        $(document).find('.stuName').css('left', namerslt+'px');
+        $(document).find('.stuissueDate').css('left', issueDaterslt+'px');
+
+        if(ispreview == ''){
+            setTimeout(() => {
+                generatePDFv2();	
+            },1000);
+        }
+    }
+
+    function generatePDFv2() {
+        var element = document.getElementById('certi-contents');
+        var opt = {
+            margin: -2,
+            padding: 0,
+            filename:     'Sunil Kumar.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 1, useCORS: true},
+            //jsPDF:        { unit: 'mm', format: 'a4', orientation: 'landscape' },
+            jsPDF:        { unit: 'mm', format: [235, 183], orientation: 'landscape' },
+            pagebreak: { mode: 'avoid-all', before: '#page2el' }
+        };
+        html2pdf().set(opt).from(element).save();
+    }
+</script>
+	
+
+</body></html>
